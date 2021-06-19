@@ -26,7 +26,7 @@ The main goal of this app is to discuss how **XXE** vulnerabilities can be explo
 To start this intentionally **insecure application**, you will need [Docker][Docker Install] and [Docker Compose][Docker Compose Install]. After forking [b3d3cLabs](https://github.com/b3d3c/b3d3cLabs), you must type the following commands to start:
 
 ```sh
-cd b3d3cLabs/owasp-top10-2017-apps/a4/vinijr-blog
+cd b3d3cLabs/owasp-top10-2017/a4/vinijr-blog
 ```
 
 ```sh

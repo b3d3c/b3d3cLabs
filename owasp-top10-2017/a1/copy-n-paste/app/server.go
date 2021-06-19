@@ -9,8 +9,8 @@ import (
 	"os"
 	"time"
 
-	"github.com/globocom/secDevLabs/owasp-top10-2017-apps/a1/copy-n-paste/app/handlers"
-	"github.com/globocom/secDevLabs/owasp-top10-2017-apps/a1/copy-n-paste/app/util"
+	"github.com/b3d3c/b3d3cLabs/owasp-top10-2017/a1/copy-n-paste/app/handlers"
+	"github.com/b3d3c/b3d3cLabs/owasp-top10-2017/a1/copy-n-paste/app/util"
 
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"

@@ -27,5 +27,5 @@ Cada aplicacion tiene un Makefile que hay que ejecutar. Sólo hay que asegurarse
 
 
 ## Referencias
-Basado en [secDevLabs](https://github.com/globocom/secDevLabs).
+Basado en [b3d3cLabs](https://github.com/b3d3c/b3d3cLabs).
 Wordlist obtenidas de [https://github.com/danielmiessler/SecLists](https://github.com/danielmiessler/SecLists).

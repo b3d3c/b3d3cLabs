@@ -45,7 +45,7 @@ Now that you know the purpose of this app, what could go wrong? The following se
 
 #### Non-sanitization of user input allows for cross-site scripting
 
-After reviewing `buildLiveHTMLMessage(message)` from [`play.component.ts`]((https://github.com/globocom/b3d3cLabs/blob/master/owasp-top10-2017-apps/a7/streaming/app/frontend/src/app/lives/play/play.component.ts#)) file, it was possible to identify that loaded messages and username are not sanitized and can be executed on a web browser (as shown in the message bellow).
+After reviewing `buildLiveHTMLMessage(message)` from [`play.component.ts`]((https://github.com/b3d3c/b3d3cLabs/blob/master/owasp-top10-2017/a7/streaming/app/frontend/src/app/lives/play/play.component.ts#)) file, it was possible to identify that loaded messages and username are not sanitized and can be executed on a web browser (as shown in the message bellow).
 
 <p align="center">
     <img src="images/vulnerable-function.png"/>

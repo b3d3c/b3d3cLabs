@@ -26,7 +26,7 @@ The main goal of this app is to discuss how **Cross-Site Scripting** vulnerabili
 To start this intentionally **insecure application**, you will need [Docker][Docker Install] and [Docker Compose][Docker Compose Install]. After forking [b3d3cLabs](https://github.com/b3d3c/b3d3cLabs), you must type the following commands to start:
 
 ```sh
-cd b3d3cLabs/owasp-top10-2017-apps/a7/gossip-world
+cd b3d3cLabs/owasp-top10-2017/a7/gossip-world
 ```
 
 ```sh

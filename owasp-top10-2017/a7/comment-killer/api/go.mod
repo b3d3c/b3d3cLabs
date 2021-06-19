@@ -1,4 +1,4 @@
-module github.com/globocom/secDevLabs
+module github.com/b3d3c/b3d3cLabs
 
 go 1.14
 
