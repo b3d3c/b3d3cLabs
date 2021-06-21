@@ -7,7 +7,5 @@ The container is based on [tutum/lamp](https://hub.docker.com/r/tutum/lamp/)
 just use 
 
 ```
-docker run -d -p 80:80 raesene/bwapp
+sh run.sh
 ```
-
-and you should be able to go to <ip>/install.php to set up your instance.
