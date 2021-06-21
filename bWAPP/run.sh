@@ -5,3 +5,4 @@ docker run -d -p 5000:80 bwapp
 echo "Configuring DB..."
 sleep 10
 sh deployment/startdb.sh
+echo "Access via: http://localhost:5000"
