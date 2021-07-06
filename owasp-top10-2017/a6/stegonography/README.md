@@ -19,14 +19,14 @@ Stegonography is a Node.js web application that uses an API and a simple front e
 
 Security misconfiguration can happen at any level of an application stack, including the network services, platform, web server, application server, database, frameworks, custom code, and pre-installed virtual machines, containers, or storage. Automated scanners are useful for detecting misconfigurations, use of default accounts or configurations, unnecessary services, legacy options, etc.
 
-The main goal of this app is to discuss how **Security Misconfiguration** vulnerabilities can be exploited and to encourage developers to send b3d3cLabs Pull Requests on how they would mitigate these flaws.
+The main goal of this app is to discuss how **Security Misconfiguration** vulnerabilities can be exploited and to encourage developers to send secDevLabs Pull Requests on how they would mitigate these flaws.
 
 ## Setup
 
-To start this intentionally **insecure application**, you will need [Docker][Docker Install] and [Docker Compose][Docker Compose Install]. After forking [b3d3cLabs](https://github.com/b3d3c/b3d3cLabs), you must type the following commands to start:
+To start this intentionally **insecure application**, you will need [Docker][Docker Install] and [Docker Compose][Docker Compose Install]. After forking [secDevLabs](https://github.com/globocom/secDevLabs), you must type the following commands to start:
 
 ```sh
-cd b3d3cLabs/owasp-top10-2017/a6/stegonography
+cd secDevLabs/owasp-top10-2017-apps/a6/stegonography
 ```
 
 ```sh
@@ -127,9 +127,15 @@ How would you mitigate this vulnerability? After your changes, an attacker shoul
 * Sign in with default credentials
 * See verbose token names
 
-## Refences
+## PR solutions
 
-* Docker Install]:  https://docs.docker.com/install/
-* Docker Compose Install: https://docs.docker.com/compose/install/
-* App: http://localhost:10006
-* Dirb: https://tools.kali.org/web-applications/dirb
+[Spoiler alert 🚨] To understand how this vulnerability can be mitigated, check out [these pull requests](https://github.com/globocom/secDevLabs/pulls?utf8=%E2%9C%93&q=is%3Aclosed+is%3Apr+label%3AA6-OWASP-2017+label%3AStegonography)!
+
+## Contributing
+
+We encourage you to contribute to SecDevLabs! Please check out the [Contributing to SecDevLabs](../../../docs/CONTRIBUTING.md) section for guidelines on how to proceed! 🎉
+
+[Docker Install]:  https://docs.docker.com/install/
+[Docker Compose Install]: https://docs.docker.com/compose/install/
+[App]: http://localhost:10006
+[Dirb]: https://tools.kali.org/web-applications/dirb

@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const app = express();
 const router = express.Router();
 const cookieParser = require('cookie-parser');
-require("dotenv-safe").load();
+require("dotenv").load();
 const jwt = require('jsonwebtoken');
 var mongo = require('mongodb')
 
@@ -48,7 +48,7 @@ MongoClient.connect(url, function(err, db) {
 MongoClient.connect(url, function(err, db) {
     if (err) throw err;
     var dbo = db.db("stego");
-    var myobj = { username: "admin", password: "admin" };
+    var myobj = { username: "admin", password: "password" };
     dbo.collection("users").insertOne(myobj, function(err, res) {
         if (err) throw err;
         console.log("Admin user added to the database");
@@ -88,7 +88,7 @@ router.post("/login", function(req,res)  {
         if (username == "admin") {
             var token = jwt.sign({ username }, process.env.SECRET, {
                 expiresIn: 300 // Token expires in 5 minutes
-            });
+    	    });
             res.cookie('nodejsSessionToken', token).redirect(301, "/admin");
         } else {
             res.status(500).send('Invalid username or password!').redirect(301, "/logout");
@@ -124,7 +124,12 @@ router.get("/", function(req,res) {
 // Returns the error web-page if none other is found
 app.use('/', router);
 app.use(function(req, res, next) {
-    res.status(404).render("error.html")
+    if (process.env.NODE_ENV == 'production'){
+        res.status(404).render("index.html")
+    } else{
+        res.status(404).render("error.html")
+    }
+   
 });
 // Listen on port 10006
 app.listen(10006, () => {
