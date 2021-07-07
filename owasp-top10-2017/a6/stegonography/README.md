@@ -79,7 +79,7 @@ By visiting `http://localhost:10006/login` we get to the following screen:
 
 ### 🔥
 
-A quick `admin:admin` guess revealed that we can successfully log in to the application and get to the admin's control panel, as shown by the image below:
+A quick `admin:password` guess revealed that we can successfully log in to the application and get to the admin's control panel, as shown by the image below:
 
 <p align="center">
     <img src="images/admin_page.png"/>
@@ -99,12 +99,12 @@ After logging in to the application, it's possible to see it sets a session toke
 
 Having a look at the token's name, we get a strong indication that the app might be running NodeJS. By using `searchsploit` an attacker could find a malicious code to exploit a NodeJS vulnerability.
 
-To install this tool, simply type the following in your OSX terminal:
+To install this tool, simply type the following in your linux terminal:
 
 ```sh
 ⚠️ 'The next command will install several exploit codes in your system and many of them may trigger antiviruses alerts'
 
-brew install exploitdb
+sudo apt-get install exploitdb
 ```
 
 Then, simply search for "NodeJS":
