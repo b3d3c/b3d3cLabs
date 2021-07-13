@@ -1,0 +1,11 @@
+version: '3'
+services:
+  app:
+    container_name: adminlogin
+    build:
+      context: ../
+      dockerfile: deployments/Dockerfile
+    volumes:
+      - "../app/:/var/www/html"
+    ports:
+      - 10009:80
