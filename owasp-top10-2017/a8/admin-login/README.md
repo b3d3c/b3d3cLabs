@@ -78,7 +78,7 @@ Changing the cookie value, changing the final `==` to `%3D%3D`, and refreshing a
 
 How would you mitigate this vulnerability? After your changes, an attacker should not be able to:
 
-* Execute code remotely through a serialization vulnerability
+* Accesing the **Admin Section** with a regular user by changing the cookie value.
 
 ## References
 
