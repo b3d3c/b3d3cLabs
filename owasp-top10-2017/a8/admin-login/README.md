@@ -35,7 +35,7 @@ make install
 
 Then simply visit [localhost:10009][App] ! 😆
 
-## Get to know the app ⚽️
+## Get to know the app
 
 To properly understand how this application works, you can follow these simple steps:
 
