@@ -22,7 +22,9 @@ Cada aplicacion tiene un Makefile que hay que ejecutar. Sólo hay que asegurarse
 | A7 - Cross-Site Scripting (XSS) | React | [Comment Killer](owasp-top10-2017/a7/comment-killer) |
 | A7 - Cross-Site Scripting (XSS) | Angular/Spring | [Streaming](owasp-top10-2017/a7/streaming) |
 | A8 - Insecure Deserialization | Python | [Amarelo Designs](owasp-top10-2017/a8/amarelo-designs) |
+| A8 - Insecure Deserialization | PHP | [Admin Login](owasp-top10-2017/a8/admin-login) |
 | A9 - Using Components With Known Vulnerabilities | PHP | [Cimentech](owasp-top10-2017/a9/cimentech) |
+| A9 - Using Components With Known Vulnerabilities | PHP | [PHP Admin](owasp-top10-2017/a9/php-admin) |
 | A10 - Insufficient Logging & Monitoring | Python | [GamesIrados.com](owasp-top10-2017/a10/games-irados) |
 
 
