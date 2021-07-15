@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  web:
+    image: vsplate/phpmyadmin-4.8.1:latest
+    ports:
+      - "80:80"
