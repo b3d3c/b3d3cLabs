@@ -1,7 +1,7 @@
 # Admin PHP
 
 <p align="center">
-    <img src="images/attack1.png"/>
+    <img src="images/attack-1.png"/>
 </p>
 
 Admin PHP is a simple phpMyAdmin page that contains an example of a component with a known vulnerability and its main goal is to demonstrate how an attacker could exploit it.
