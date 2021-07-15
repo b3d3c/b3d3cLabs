@@ -1,7 +1,7 @@
 # Admin PHP
 
 <p align="center">
-    <img src="images/attack1.png"/>
+    <img src="images/attack-1.png"/>
 </p>
 
 Admin PHP is a simple web application built with Drupal that contains an example of a component with a known vulnerability and its main goal is to demonstrate how an attacker could exploit it.
@@ -52,7 +52,7 @@ Now that you know the purpose of this app, what could go wrong? The following se
 
 It's possible to reach the server's web application from the standard HTTP port 80, as shown by the image below:
 
-<img src="images/attack1.png" align="center"/>
+<img src="images/attack-1.png" align="center"/>
 
 Afterward, by having a look at the `/robots.txt` file, it's possible to find the `CHANGELOG.txt` file in the `Disallow` field, as depicted by the image below:
 
