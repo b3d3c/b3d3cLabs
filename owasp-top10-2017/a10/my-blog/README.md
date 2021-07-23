@@ -70,80 +70,70 @@ In the Positions tab, all fields must be cleared first via the `Clear §` button
     <img src="images/attack4.png"/>
 </p>
 
+After that, change Attack type from `Snipper` to `Cluster bomb`:
+
+<p align="center">
+    <img src="images/attack5.png"/>
+</p>
+
+
 If a valid password is found, the application may process new cookies and eventually redirect the flow to other pages. To guarantee that the brute force attack follows this behavior, set `Always` into `Follow Redirections` options in the `Options` tab, as shown below:
 
 <p align="center">
     <img src="images/attack10.png"/>
 </p>
 
-You can use the following wordlist (`poc.txt`) just for POC purposes:
+You can use the following wordlist for Payload set 1:
 
 ```
+user
+other
 admin
+administrator
+blank
+```
+
+And the following wordlist for Payload set 2:
+
+```
 password
 123
+admin
 qweasd
 1qaz
 123456789
-flamengo
-zxc
-asd123qwe
-YOURVALIDPASSWORD
 ```
 
-Before executing the attack, you can open a new tab in your terminal and type the following command to observe how the malicious requests will come to the app:
-
-```sh
-docker logs app-a10 -f
-```
-
-In the `Payloads` tab, simply choose the wordlist from `Load...` option and then the attack may be performed via the `Start attack` button. 
-
-<p align="center">
-    <img src="images/attack11.png"/>
-</p>
-
-As we can see from the results of the requests, the application handles successful and unsuccessful requests differently by responding to different status codes. As shown below, when the payload is correct the application responds a status code `302 FOUND`, otherwise it responds with a `200 OK`.
-
-<p align="center">
-    <img src="images/attack3.png"/>
-</p>
-
-By having a look at the application on the server side, it's possible to see that the logs provide little information regarding the attack, as shown below:
-
-<p align="center">
-    <img src="images/attack4.png"/>
-</p>
-
-Furthermore, if we try the `/coupon` route, instead of the `/login`, we can see similar results. The coupon page is shown below:
-
-<p align="center">
-    <img src="images/attack5.png"/>
-</p>
-
-Using Burp Suite again, we could send multiple requests to the application to simulate the second brute force attack, changing only the `coupon` field:
+In the `Payloads` tab, Payload set `1`, simply copy the wordlist and then click on `Paste` option.
 
 <p align="center">
     <img src="images/attack6.png"/>
 </p>
 
-If you need to generate a simple number wordlist, you can use the following command:
-
-```sh
-seq 100 200 > coupons.txt
-```
-
-As we can see from the image below, the requests seem to have been handled properly by the server.
+Do the same for Payload set `2` and then the attack may be performed via the `Start attack` button. 
 
 <p align="center">
     <img src="images/attack7.png"/>
 </p>
 
-However, we can also confirm that little information is being logged at the server side, as shown by the image below:
+Before executing the attack, you can open a new tab in your terminal and type the following command to observe how the malicious requests will come to the app:
+
+```sh
+docker logs deployments_wordpress_1 -f
+```
+
+As we can see from the results of the requests, the application handles successful and unsuccessful requests differently by responding to different status codes. As shown below, when the payload is correct the application responds a status code `302 FOUND`, otherwise it responds with a `200 OK`.
 
 <p align="center">
     <img src="images/attack8.png"/>
 </p>
+
+By having a look at the application on the server side, it's possible to see that the logs provide little information regarding the attack, as shown below:
+
+<p align="center">
+    <img src="images/attack9.png"/>
+</p>
+
 
 ## Secure this app
 
@@ -155,10 +145,9 @@ How would you mitigate this vulnerability? After your changes, the new log syste
 * Where did it happen
 
 
-
 ## Contributing
 
 * Docker Install:  https://docs.docker.com/install/
 * Docker Compose Install: https://docs.docker.com/compose/install/
-* App: http://localhost:10010
+* App: http://localhost:80
 * Burp Suite: https://portswigger.net/burp
