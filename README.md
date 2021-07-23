@@ -26,6 +26,7 @@ Cada aplicacion tiene un Makefile que hay que ejecutar. Sólo hay que asegurarse
 | A9 - Using Components With Known Vulnerabilities | PHP | [Cimentech](owasp-top10-2017/a9/cimentech) |
 | A9 - Using Components With Known Vulnerabilities | PHP | [Admin PHP](owasp-top10-2017/a9/admin-php) |
 | A10 - Insufficient Logging & Monitoring | Python | [GamesIrados.com](owasp-top10-2017/a10/games-irados) |
+| A10 - Insufficient Logging & Monitoring | PHP | [My Blog](owasp-top10-2017/a10/my-blog) |
 
 
 ## Referencias
