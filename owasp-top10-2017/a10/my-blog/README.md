@@ -122,7 +122,7 @@ Before executing the attack, you can open a new tab in your terminal and type th
 docker logs deployments_wordpress_1 -f
 ```
 
-As we can see from the results of the requests, the application handles successful and unsuccessful requests differently by responding to different status codes. As shown below, when the payload is correct the application responds a status code `302 FOUND`, otherwise it responds with a `200 OK`.
+As we can see from the results of the requests, the application handles successful and unsuccessful requests differently by responding to different status codes. As shown below, when the payload is correct the application responds a status code `200 OK`, but it will show 2 redirections.
 
 <p align="center">
     <img src="images/attack8.png"/>
